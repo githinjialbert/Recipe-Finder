@@ -1,0 +1,40 @@
+body {
+    background-color: #A9A9A9;
+    color: whitesmoke;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    height: 100vh;
+}
+
+input {
+    padding: 10px;
+    border: 2px solid goldenrod;
+    border-radius: 5px;
+    font-size: 18px;
+    width: 60%;
+    max-width: 300px;
+    margin-right: 10px;
+    background-color: white;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    color: whitesmoke;
+    background-color: goldenrod;
+    box-shadow: 0 4px rgba(184, 134, 11, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px rgba(184, 134, 11, 0.5);
+}
+
+button:hover {
+    background-color: rgb(219, 200, 91);
+}
