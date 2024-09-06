@@ -5,7 +5,6 @@ body {
     text-align: center;
     height: 100vh;
 }
-
 input {
     padding: 10px;
     border: 2px solid goldenrod;
@@ -16,7 +15,6 @@ input {
     margin-right: 10px;
     background-color: white;
 }
-
 button {
     padding: 10px 20px;
     border: none;
@@ -29,12 +27,38 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.1s ease-in-out;
 }
-
 button:active {
     transform: translateY(2px);
     box-shadow: 0 2px rgba(184, 134, 11, 0.5);
 }
-
 button:hover {
     background-color: rgb(219, 200, 91);
+}
+main {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+#recipe-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+.recipe-card {
+    background: white;
+    color: black;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+.recipe-card img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+ul {
+    list-style-type: none;
 }
