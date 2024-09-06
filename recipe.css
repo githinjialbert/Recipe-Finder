@@ -46,8 +46,8 @@ main {
     width: 100%;
     max-width: 1200px;
 }
-.recipe-card {
-    background: white;
+.recipe-item {
+    background: goldenrod;
     color: black;
     border-radius: 10px;
     padding: 20px;
@@ -58,7 +58,6 @@ main {
     max-width: 100%;
     border-radius: 10px;
 }
-
 ul {
     list-style-type: none;
 }
