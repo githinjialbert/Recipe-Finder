@@ -14,7 +14,8 @@ const fetchRecipe = async () => {
             return;
         }
 
-        const apiUrl = `https://api.edamam.com/search?q=${encodeURIComponent(query)}&app_id=${apiId}&app_key=${apiKey}`;
+        
+        const apiUrl = `https://api.edamam.com/search?q=${encodeURIComponent(query)}&app_id=${apiId}&app_key=${apiKey}&from=0&to=9`;
 
         const response = await fetch(apiUrl);
         if (!response.ok) {
@@ -22,24 +23,32 @@ const fetchRecipe = async () => {
         }
 
         const data = await response.json();
+        console.log(data); 
 
         if (data && data.hits && data.hits.length > 0) {
-            const recipe = data.hits[0].recipe;
+          
+            let recipesHtml = '';
 
-            recipeSection.innerHTML = `
-            <h2>${recipe.label}</h2>
-            <img src="${recipe.image}" alt="${recipe.label}"/>
-            <p>${recipe.source}</p>
-            `;
+            data.hits.forEach(hit => {
+                const recipe = hit.recipe;
 
-            recipeDetails.innerHTML = `
-            <h3>Ingredients</h3>
-            <ul>
-            ${recipe.ingredientLines.map(ingredient => `<li>${ingredient}</li>`).join('')}
-            </ul>
-            `;
+                recipesHtml += `
+                <div class="recipe-item">
+                    <h2>${recipe.label}</h2>
+                    <img src="${recipe.image}" alt="${recipe.label}"/>
+                    <p>${recipe.source}</p>
+                    <h3>Ingredients</h3>
+                    <ul>
+                    ${recipe.ingredientLines.map(ingredient => `<li>${ingredient}</li>`).join('')}
+                    </ul>
+                    <a href="${recipe.url}" target="_blank">View Recipe</a>
+                </div>
+                `;
+            });
+
+            recipeSection.innerHTML = recipesHtml;
         } else {
-            recipeSection.innerHTML = "<p>No recipe was found</p>";
+            recipeSection.innerHTML = "<p>No recipes were found</p>";
         }
 
         searchRecipe.value = '';
