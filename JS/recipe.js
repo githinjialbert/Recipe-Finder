@@ -2,8 +2,6 @@ const searchRecipe = document.getElementById("search-recipe");
 const searchBtn = document.getElementById("search-button");
 const recipeSection = document.getElementById("recipe-section");
 
-const apiKey = 'da98749161094a97d0caaa27639b516d';
-const apiId = '518bdf4f';
 
 
 const fetchRecipe = async (query = "chicken") => {  
